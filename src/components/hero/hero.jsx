@@ -1,7 +1,7 @@
 import "./hero.css";
 import Button from "../button/button";
 
-function Hero(props) {
+function Hero({ buttonText, productData }) {
   const isLoggedIn = true;
 
   return (
@@ -22,9 +22,10 @@ function Hero(props) {
           cupiditate, dolor asperiores exercitationem nisi soluta. Nisi tempora
           minima ipsam.
         </p>
+        <p>total product = {productData.length}</p>
         {/** false */}
         {/* {isLoggedIn ? <button>Add Products</button> : null} */}
-        {isLoggedIn && <Button>{props.buttonText}</Button>}
+        {isLoggedIn && <Button>{buttonText}</Button>}
       </section>
       <img
         style={{

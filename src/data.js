@@ -17,4 +17,22 @@ export const data = [
     description: "available with discount",
     price: 100,
   },
+  {
+    image: "https://images.unsplash.com/photo-1502404768591-f24d06b7a366",
+    name: "TV",
+    description: "available with discount",
+    price: 1000,
+  },
+  {
+    image: "https://images.unsplash.com/photo-1502404768591-f24d06b7a366",
+    name: "TV",
+    description: "available with discount",
+    price: 1000,
+  },
+  {
+    image: "https://images.unsplash.com/photo-1502404768591-f24d06b7a366",
+    name: "TV",
+    description: "available with discount",
+    price: 1000,
+  },
 ];

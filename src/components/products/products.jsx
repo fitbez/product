@@ -1,32 +1,15 @@
-import React from "react";
-import Button from "../button/button";
-import { data } from "../../data";
+import Hero from "../hero/hero";
+import ProductsListItem from "../product-list-item/product-list-item";
 
-console.log("DATA", data);
-
-const product = {
-  image: "dkjkjdskj",
-  name: "product name",
-  description: "some description",
-  price: 400,
-};
-
-function Products(props) {
+export default function Products(props) {
+  console.log("products", props);
   return (
     <>
-      <h2>Hello from Products</h2>
-      {data.map((product) => {
-        return (
-          <>
-            <img width="300px" height="300px" src={product.image} alt="" />
-            <h5>{product.name}</h5>
-            <p>{product.description}</p>
-            <p>${product.price}</p>
-          </>
-        );
-      })}
+      <Hero productData={props.productData} />
+      <ProductsListItem
+        buttonText={props.buttonText}
+        productData={props.productData}
+      />
     </>
   );
 }
-
-export default Products;
