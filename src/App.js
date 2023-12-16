@@ -4,19 +4,30 @@ import Nav from "./components/nav/nav";
 import { data } from "./data";
 import { Routes, Route } from "react-router-dom";
 import Products from "./components/products/products";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import AddProduct from "./components/add-products/add-products";
 
 function App() {
-  const [name, setName] = useState("John Doe");
+  const [product, setProduct] = useState([]);
+  const [count, setCount] = useState(0);
 
-  // const [car, setCar] = useState({
-  //   make: "Toyota",
-  //   year: "2020",
-  // });
-
-  const handleChangeName = () => {
-    setName("Mike Rob");
+  const handleAddProduct = () => {
+    setProduct(data);
   };
+
+  const handleIncrement = () => {
+    setCount(count + 1);
+  };
+
+  const fetchProductData = () => {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((data) => setProduct(data));
+  };
+
+  useEffect(() => {
+    fetchProductData();
+  }, []);
 
   return (
     <div className="App">
@@ -25,17 +36,32 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route
           path="/product"
-          element={<Products buttonText="View Products" productData={data} />}
+          element={
+            <Products
+              buttonText="View Products"
+              bgColor="#11CCF4"
+              productData={product}
+              handleAddProduct={handleAddProduct}
+            />
+          }
+        />
+        <Route
+          path="/add-product"
+          element={
+            <AddProduct
+              buttonText="Submit"
+              bgColor="green"
+              setProducts={setProduct}
+            />
+          }
         />
       </Routes>
-      <button onClick={handleChangeName}>Change my name</button>
-      My name is {name}
+      <div style={{ marginBottom: "2rem", width: "100%", textAlign: "center" }}>
+        <p>{count}</p>
+        <button onClick={handleIncrement}>Count</button>
+      </div>
     </div>
   );
 }
 
 export default App;
-
-//camel case className, heroComponent
-// pascal case  (e.g. component names) AppComponent
-// snake case (e.g. file naming ) app-component

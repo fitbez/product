@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -24,8 +23,11 @@ const Nav = () => {
         <Link to="/">
           <li>Home</li>
         </Link>
-        <Link to="product">
+        <Link to="/product">
           <li>Products</li>
+        </Link>
+        <Link to="/add-product">
+          <li>Add Product</li>
         </Link>
         <Link to="/login">
           <li>Login</li>

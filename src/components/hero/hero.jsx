@@ -1,7 +1,7 @@
 import "./hero.css";
 import Button from "../button/button";
 
-function Hero({ buttonText, productData }) {
+function Hero({ buttonText, productData, handleAddProduct, bgColor }) {
   const isLoggedIn = true;
 
   return (
@@ -24,8 +24,15 @@ function Hero({ buttonText, productData }) {
         </p>
         <p>total product = {productData.length}</p>
         {/** false */}
-        {/* {isLoggedIn ? <button>Add Products</button> : null} */}
-        {isLoggedIn && <Button>{buttonText}</Button>}
+        {isLoggedIn ? (
+          <button
+            onClick={handleAddProduct}
+            style={{ backgroundColor: bgColor }}
+          >
+            Add Products
+          </button>
+        ) : null}
+        {/* {isLoggedIn && <Button>{buttonText}</Button>} */}
       </section>
       <img
         style={{

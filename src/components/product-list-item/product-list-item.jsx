@@ -1,21 +1,27 @@
-import React from "react";
+import styled from "styled-components";
+
+const StyledProductList = styled.div`
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+`;
 
 function ProductsListItem(props) {
   console.log("props", props);
   return (
-    <>
-      <h2>New Products</h2>
-      {props.productData.map((product) => {
+    <StyledProductList>
+      {props.productData.map((product, index) => {
         return (
-          <>
-            <img width="300px" height="300px" src={product.image} alt="" />
+          <div style={{ textAlign: "center" }} key={index}>
+            <img width="200px" height="200px" src={product.image} alt="" />
             <h5>{product.name}</h5>
             <p>{product.description}</p>
             <p>${product.price}</p>
-          </>
+          </div>
         );
       })}
-    </>
+    </StyledProductList>
   );
 }
 
